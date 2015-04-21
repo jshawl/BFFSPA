@@ -1,5 +1,17 @@
 <h1>Pets Index </h1>
 
 <% @pets.each do |pet| %>
-    <p><%= pet.name %></p>
-    <% end %>
+<div class='row '>
+    <div class='panel large-12 columns clearfix'>
+        <img src='<%= pet.picture_url || "http://lorempixel.com/300/300/animals/8/" %>'
+         class='left puppy thumb'/>
+         <h3><%= link_to pet.name, pet %> <small><%= pet.color %> <%= pet.breed %></small></h3>
+         <ul class='puppy-details'>
+             <li><%= pet.sex %> - <%= pet.age %> old </li>
+            <li><%= "Kid Friendly!" if pet.kid_friendly == true%></li>
+         </ul>
+
+    </div>
+
+</div>
+<% end %>

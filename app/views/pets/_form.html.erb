@@ -1,0 +1,44 @@
+<% if @pet.errors.any? %>
+    <ul>
+    <% @pet.errors.full_messages.each do |err| %>
+        <li><%= err %></li>
+    <% end %>
+    </ul>
+<% end %>
+<%= form_for [@shelter,@pet] do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :breed %>
+    <%= f.text_field :breed %>
+
+    <%= f.label :sex %>
+    <%= f.text_field :sex %>
+
+        <%= f.label :size %>
+    <%= f.text_field :size %>
+
+        <%= f.label :color %>
+    <%= f.text_field :color %>
+
+        <%= f.label :age %>
+    <%= f.text_field :age %>
+
+        <%= f.label :energy %>
+    <%= f.text_field :energy %>
+
+
+    <%= f.check_box :kid_friendly %>
+        <%= f.label :kid_friendly %>
+
+
+        <%= f.label :picture_url %>
+    <%= f.text_field :picture_url %>
+
+
+
+    <%= f.label :bio %>
+    <%= f.text_area :bio %>
+
+    <%= f.submit  class: "button "%>
+<% end %>
