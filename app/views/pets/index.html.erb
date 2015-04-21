@@ -6,8 +6,7 @@
         <img src='<%= pet.picture_url || "http://lorempixel.com/300/300/animals/8/" %>'
          class='left puppy thumb'/>
          <h3><%= link_to pet.name, pet %> <small><%= pet.color %> <%= pet.breed %></small></h3>
-         <ul class='puppydetails'>
-             <li></li>
+         <ul class='puppy-details'>
              <li><%= pet.sex %> - <%= pet.age %> old </li>
             <li><%= "Kid Friendly!" if pet.kid_friendly == true%></li>
          </ul>

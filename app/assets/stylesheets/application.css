@@ -33,11 +33,11 @@ ul.puppy-details {
     list-style: none;
 }
 .puppy-information ul  li {
-    display:inline-block;
-       text-align: left;
+    display:inline;
+      float:left;
 
 }
-.puppy-information{
+.puppy-information ul{
     text-align: left;
 }
 
