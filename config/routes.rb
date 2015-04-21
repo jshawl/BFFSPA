@@ -1,5 +1,32 @@
+# After defining controller actions, must make resources (nouns/paths) for them in config/routes.rb
+
 Rails.application.routes.draw do
-  devise_for :users
+  # Set up a root route for devise that will reroute to AFTER successful login:
+  root 'pets#index'     # 'Favorites' one option; based on assumption that user has favorites if they have a login?
+                        # We like 'pets#index' better
+  # Alias user routes for user accounts/profiles:
+  devise_for :users, :path => 'user_profiles'
+
+  # Nested resources/routes under user:
+  resources :users do
+    resources :favorites
+  end
+
+  resources :pets, only: [:index, :show]
+
+  resources :shelters do
+    resources :pets
+  end
+
+end
+
+# Below 2 lines = original / auto-generated code (upon installing Devise gem)
+
+        # Rails.application.routes.draw do
+        #   devise_for :users
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -55,12 +82,3 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-resources :pets,  only: [:index, :show]
-resources :shelters do
-  resources :pets
-end
-
-
-root 'pets#index'
-
-end
