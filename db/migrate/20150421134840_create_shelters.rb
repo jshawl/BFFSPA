@@ -3,7 +3,7 @@ class CreateShelters < ActiveRecord::Migration
     create_table :shelters do |t|
         t.string :name
         t.text :address
-        t.tstring :phone
+        t.string :phone
         t.string :email
         t.string :banner
         t.text :story
