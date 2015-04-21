@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-resources :pets
+resources :pets,  only: [:index, :show]
 resources :shelters do
   resources :pets
 end

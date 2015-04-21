@@ -1,8 +1,13 @@
 class CreateShelters < ActiveRecord::Migration
   def change
     create_table :shelters do |t|
-
-      t.timestamps null: false
+        t.string :name
+        t.text :address
+        t.tstring :phone
+        t.string :email
+        t.string :banner
+        t.text :story
+        t.timestamps null: false
     end
   end
 end
