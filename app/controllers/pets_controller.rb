@@ -12,9 +12,11 @@ class PetsController < ApplicationController
 
     def edit
         @pet = Pet.find(params[:id])
+        @shelter = @pet.shelter
     end
 
     def new
+        @shelter = Shelter.find(params[:shelter_id])
         @pet = Pet.new()
     end
 

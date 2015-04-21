@@ -5,7 +5,7 @@
     <% end %>
     </ul>
 <% end %>
-<%= form_for @pet do |f| %>
+<%= form_for [@shelter,@pet] do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
 
