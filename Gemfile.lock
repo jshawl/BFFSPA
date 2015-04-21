@@ -160,10 +160,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
-<<<<<<< HEAD
-=======
   foundation-rails
->>>>>>> c4f657ce53d243fa19190157644dfab126cd9251
   jbuilder (~> 2.0)
   jquery-rails
   pg
