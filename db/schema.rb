@@ -11,11 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150421144848) do
+=======
+ActiveRecord::Schema.define(version: 20150421143923) do
+>>>>>>> c4f657ce53d243fa19190157644dfab126cd9251
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -33,5 +38,32 @@ ActiveRecord::Schema.define(version: 20150421144848) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+=======
+  create_table "pets", force: :cascade do |t|
+    t.string   "name"
+    t.string   "breed"
+    t.string   "sex"
+    t.string   "color"
+    t.string   "size"
+    t.string   "age"
+    t.integer  "energy"
+    t.boolean  "kid_friendly"
+    t.integer  "shelter_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.text     "bio"
+  end
+
+  create_table "shelters", force: :cascade do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "banner"
+    t.text     "story"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+>>>>>>> c4f657ce53d243fa19190157644dfab126cd9251
 
 end

@@ -54,4 +54,13 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+resources :pets,  only: [:index, :show]
+resources :shelters do
+  resources :pets
+end
+
+
+root 'pets#index'
+
 end
