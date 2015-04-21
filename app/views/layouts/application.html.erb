@@ -12,9 +12,35 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+  <body >
+ <nav class="top-bar row" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">Movie Trailr</a></h1>
+        </li>
+      </ul>
 
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li ><%= link_to "Movies", root_path %></li>
+          <li><%= link_to "Actors", actors_path %></li>
+          <li class="has-form">
+            <%= form_tag '/movies/search' do %>
+            <%= text_field_tag :s, nil, placeholder: "Search Movies" %>
+            <%= submit_tag "Search", id: 'button', class: 'button'  %>
+            <% end %>
+          </li>
+        </ul>
+      </section>
+    </nav>
+    <main class='content row'>
     <%= yield %>
-
-  </body>
+  </main>
+<footer>
+<div class='footer-content row'>
+  &copy; best friends pet finder
+</div>
+</footer>
+</body>
 </html>
