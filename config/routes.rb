@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :matches, only:[:index, :show, :find]
-  post 'movies/search', to: 'movies#search'
+  post 'matches/find', to: 'matches#find'
 
 end
 
