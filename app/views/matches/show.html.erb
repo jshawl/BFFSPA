@@ -1,18 +1,21 @@
 <section class="hero large-12 columns"
   style='background-image: url("http://lorempixel.com/800/800/animals/");'>
   <div class="row intro panel match-details ">
+  <h4 class='right'>  &#10084; Favorite <%= @pet.name %> </h4>
     <h2>
       Meet
       <%=@pet.name %></h2>
+
     <div class="medium-8 left match-content">
       <h3>My story</h3>
       <p>
         <%= @pet.bio %>
 
       </p>
+            <a href='#' class='button'> Contact Shelter </a>
     </div>
     <div class="medium-4 right match-side">
-      <h4> Match Percent </h4>
+
       <table class='match-details'>
       <tr><th>Match</th>
       <td>95%</td></tr>
@@ -43,6 +46,8 @@
         </tr>
       </table>
     </div>
+
   </div>
+
 </section>
 
