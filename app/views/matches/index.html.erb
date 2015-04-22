@@ -2,15 +2,18 @@
 <p>choose your friends!</p>
 
 <%= form_tag '/matches/find' do %>
-<div class="panel">
-  <%= label_tag :user_name, "Tell us about yourself" %>
-  <%= text_field_tag :user_name, nil, placeholder: "Your Name" %>
-<%= text_field_tag :user_zip, nil, placeholder: "Zip Code" %>
+<div class="panel clearfix">
+ <h2>Tell us about yourself</h2>
+
+ <div class="small-6 columns"> <%= text_field_tag :user_name, nil, placeholder: "Your Name" %></div>
+
+ <div   class="small-6 columns"><%= text_field_tag :user_zip, nil, placeholder: "Zip Code" %></div>
 </div>
 
 <div class="panel">
 <h2>Hi Your First Name,<h2>
-
+<%= label_tag :pet_type, "What type of companion are you looking for?
+" %>
 <%= radio_button_tag(:pet_type, "dogs") %>
 <%= label_tag(:pet_type_dogs, "Dogs") %>
 <%= radio_button_tag(:pet_type, "cats") %>
