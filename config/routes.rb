@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   # Set up a root route for devise that will reroute to AFTER successful login:
-  root 'pets#index'     # 'Favorites' one option; based on assumption that user has favorites if they have a login?
+  root 'matches#index'     # 'Favorites' one option; based on assumption that user has favorites if they have a login?
                         # We like 'pets#index' better
   # Alias user routes for user accounts/profiles:
   devise_for :users, :path => 'user_profiles'
