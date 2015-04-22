@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     resources :pets
   end
 
+  resources :matches, only:[:index, :show, :find]
+  post 'movies/search', to: 'movies#search'
+
 end
 
 # Below 2 lines = original / auto-generated code (upon installing Devise gem)
