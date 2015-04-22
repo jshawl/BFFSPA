@@ -90,6 +90,28 @@ Hero Stuff
         color: white;
 
     }
+
+    .match-details {
+      background:none;
+      border:none;
+
+    }
+    .match-details  tr:nth-of-type(even) {
+      background: none;
+    }
+    .match-details th{
+      color: #3AB9DB;
+      text-align: right;
+       font-size: 1.75em;
+
+    }
+        .match-details td{
+      color: white;
+ font-size: 1.75em;
+ overflow: shrink;
+
+
+    }
 /*  .hero .tech-img {
     background: url("http://static.pexels.com/wp-content/uploads/2015/02/apple-hand-iphone-6-4322-525x350.jpg") no-repeat center center;
     background-size: cover;
