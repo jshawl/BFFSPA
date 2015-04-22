@@ -15,7 +15,9 @@
  *= require foundation_and_overrides
 
  */
-
+img.logo{
+  height:35px;
+}
 img.puppy {
     padding: 2px;
     border: 2px solid #f1f1f1;
