@@ -2,10 +2,13 @@
 <p>choose your friends!</p>
 
 <%= form_tag '/matches/find' do %>
+<div class="panel">
   <%= label_tag :user_name, "Tell us about yourself" %>
   <%= text_field_tag :user_name, nil, placeholder: "Your Name" %>
 <%= text_field_tag :user_zip, nil, placeholder: "Zip Code" %>
+</div>
 
+<div class="panel">
 <h2>Hi Your First Name,<h2>
 
 <%= radio_button_tag(:pet_type, "dogs") %>
@@ -17,7 +20,10 @@
 <%= radio_button_tag(:pet_type, "all") %>
 <%= label_tag(:pet_type_all, "All") %>
 
+</div>
 
+
+<div class="panel">
 <h2>So , you are looking for a variety of animals.</h2>
 
 <%= label_tag :pet_size, "What size companion are you looking for?
@@ -35,9 +41,9 @@
 <%= label_tag(:pet_size_xlarge, "X-Large") %>
 <%= radio_button_tag(:pet_size, "all") %>
 <%= label_tag(:pet_size_all, "All") %>
+</div>
 
-
-
+<div class="panel">
   <h2> ok, any size variety animal</h2>
 <%= label_tag :pet_gender, "What gender would you prefer for your pet?" %>
 <%= radio_button_tag(:pet_gender, "male") %>
@@ -47,7 +53,9 @@
 <%= radio_button_tag(:pet_gender, "all") %>
 <%= label_tag(:pet_gender_all, "All") %>
 
+</div>
 
+<div class="panel">
   <h2> any size, male or female variety of animals.</h2>
 <%= label_tag :pet_personality, "What personality would you prefer for your pet?" %>
 
@@ -61,7 +69,7 @@
 <%= radio_button_tag(:pet_personality, "extreme") %>
 <%= label_tag(:pet_personality_extreme, "Extreme") %>
 
-
+</div>
 
   <%= submit_tag "Search" , class: "button"%>
 <% end %>
