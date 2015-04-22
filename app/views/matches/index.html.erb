@@ -2,7 +2,43 @@
 <p>choose your friends!</p>
 
 <%= form_tag '/matches/find' do %>
-  <%= label_tag :s, "Search for Movies" %>
-  <%= text_field_tag :s, nil, placeholder: "Title keywords" %>
-  <%= submit_tag "Search" %>
+  <%= label_tag :user_name, "Tell us about yourself" %>
+  <%= text_field_tag :user_name, nil, placeholder: "Your Name" %>
+<%= text_field_tag :user_zip, nil, placeholder: "Zip Code" %>
+
+<h2>Hi Your First Name,<h2>
+
+
+  <%= label_tag :pet_type, "What type of companion are you looking for?" %>
+<%= select_tag(:pet_type, options_for_select([
+ "Dogs", "Cats", "Other", "All"
+  ])) %>
+
+<h2>So , you are looking for a variety of animals.</h2>
+
+<%= label_tag :pet_size, "What size companion are you looking for?
+" %>
+
+<%= select_tag(:pet_type, options_for_select([
+ "x-small", "small", "medium", "large", "x-large", "all"
+  ])) %>
+
+  <h2> ok, any size variety animal</h2>
+  <%= label_tag :pet_gender, "What is your preference of gender?" %>
+  <%= select_tag(:pet_gender, options_for_select([
+ "Male", "Female", "Any"
+  ])) %>
+
+  <h2> any size, male or female variety of animals.</h2>
+<%= label_tag :pet_personality, "What personality would you prefer for your pet?" %>
+  <%= select_tag(:pet_personality, options_for_select([
+ "Loyal Companion", "Family Friendly", "Sporty, High Energy", "Agility Wiz"
+  ])) %>
+
+
+
+
+
+
+  <%= submit_tag "Search" , class: "button"%>
 <% end %>
