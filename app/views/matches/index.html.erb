@@ -1,2 +1,8 @@
 <h1>Welcome to best friends finder</h1>
 <p>choose your friends!</p>
+
+<%= form_tag '/matches/find' do %>
+  <%= label_tag :s, "Search for Movies" %>
+  <%= text_field_tag :s, nil, placeholder: "Title keywords" %>
+  <%= submit_tag "Search" %>
+<% end %>
