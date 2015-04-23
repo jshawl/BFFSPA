@@ -4,8 +4,10 @@
 <% @pets.each do |pet| %>
 <div class='row '>
     <div class='panel large-12 columns clearfix'>
-        <img src='<%= pet.picture_url || "http://lorempixel.com/300/300/animals/8/" %>'
-         class='left puppy thumb'/>
+    <a class="" href="<%= match_path(pet.id)%>">
+      <img class='puppy thumb left ' src="<%= pet.picture_url || "http://lorempixel.com/300/300/animals/8/" %>" alt='pet picture'>
+    </a>
+
          <h3><%= link_to pet.name, match_path(pet.id) %> <small><%= pet.color %> <%= pet.breed %></small></h3>
          <ul class='puppy-details'>
              <li><%= pet.sex %> - <%= pet.age %> old </li>
