@@ -1,18 +1,25 @@
 <section class="hero large-12 columns"
   style='background-image: url("http://lorempixel.com/800/800/animals/");'>
   <div class="row intro panel match-details ">
+
+  <%= form_tag "/favorites" do %>
+  <%= hidden_field :pet, :id, value: @pet.id %>
+  <%= submit_tag "Add to favorites!" , class: "button tiny right round "%>
+  <% end %>
     <h2>
       Meet
       <%=@pet.name %></h2>
+
     <div class="medium-8 left match-content">
       <h3>My story</h3>
       <p>
         <%= @pet.bio %>
 
       </p>
+            <a href='#' class='button round' data-reveal-id="shelter-modal"> Contact Shelter </a>
     </div>
     <div class="medium-4 right match-side">
-      <h4> Match Percent </h4>
+
       <table class='match-details'>
       <tr><th>Match</th>
       <td>95%</td></tr>
@@ -43,6 +50,19 @@
         </tr>
       </table>
     </div>
+
   </div>
+
 </section>
 
+
+
+<div id="shelter-modal" class="reveal-modal" data-reveal aria-labelledby="shelter-modal" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">You can find me at <%=@shelter.name %></h2>
+  <p class="lead"><%= @shelter.address %></p>
+   <%= text_field_tag :user_name, nil, placeholder: "Your Name" %>
+   <%= text_field_tag :user_email, nil, placeholder: "Your Email" %>
+   <%= text_area_tag :bio, nil, placeholder: "Tell us about your self" %>
+   <%= link_to "Send!", match_path(@pet.id), class: 'button round' %>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
