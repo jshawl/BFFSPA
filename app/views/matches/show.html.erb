@@ -1,6 +1,7 @@
 <section class="hero large-12 columns"
   style='background-image: url("http://lorempixel.com/800/800/animals/");'>
   <div class="row intro panel match-details ">
+
   <%= form_tag "/favorites" do %>
   <%= hidden_field :pet, :id, value: @pet.id %>
   <%= submit_tag "Favorite!" , class: "button right round"%>
