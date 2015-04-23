@@ -13,10 +13,7 @@ class MatchesController < ApplicationController
     end
 
     def find
-
         @pet = Pet.order('random()').first
-
-
         redirect_to match_path @pet
 
     end

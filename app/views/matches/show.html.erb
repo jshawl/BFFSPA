@@ -59,6 +59,9 @@
 <div id="shelter-modal" class="reveal-modal" data-reveal aria-labelledby="shelter-modal" aria-hidden="true" role="dialog">
   <h2 id="modalTitle">You can find me at <%=@shelter.name %></h2>
   <p class="lead"><%= @shelter.address %></p>
-  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+   <%= text_field_tag :user_name, nil, placeholder: "Your Name" %>
+   <%= text_field_tag :user_email, nil, placeholder: "Your Email" %>
+   <%= text_area_tag :bio, nil, placeholder: "Tell us about your self" %>
+   <%= link_to "Send!", match_path(@pet.id), class: 'button round' %>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
