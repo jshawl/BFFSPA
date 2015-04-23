@@ -1,5 +1,5 @@
 <section class="hero large-12 columns"
-  style='background-image: url("http://lorempixel.com/800/800/animals/");'>
+  style='background-image: url("<%= @pet.picture_url %>");'>
   <div class="row intro panel match-details ">
   <% if !current_user %>
   <a href='#' class='button tiny right round' data-reveal-id="sign-in-modal">Sign in to favorite</a>
