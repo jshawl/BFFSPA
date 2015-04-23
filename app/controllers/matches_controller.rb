@@ -7,8 +7,12 @@ class MatchesController < ApplicationController
     end
 
     def show
+
         @pet = Pet.find(params[:id])
         @shelter = @pet.shelter
+        if current_user
+            @fav = true if  Favorite.find_by(user_id: current_user.id, pet_id: @pet.id)
+        end
         render layout: "match_layout"
     end
 

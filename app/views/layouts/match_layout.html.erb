@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Best Friends Forever</title>
 
@@ -13,7 +13,8 @@
   </head>
 
   <body >
-<nav class="top-bar" data-topbar>
+
+ <nav class="top-bar" data-topbar>
           <ul class="title-area">
 
             <li class="name">
@@ -38,12 +39,25 @@
               <li class="divider"></li>
               <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
               <% else %>
-
-              <li><%= link_to "Sign In", new_user_session_path %></li>
+              <li> <a href="#" data-reveal-id="sign-in-modal">Sign In</a></li>
             <% end %>
             </ul>
           </section>
         </nav>
+  <div id="sign-in-modal" class="reveal-modal remove-whitespace" data-reveal>
+<div class="row">
+  <%= render "login_forms/sign_in" %>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+</div>
+
+  <div id="sign-up-modal" class="reveal-modal remove-whitespace" data-reveal>
+<div class="row">
+  <%= render "login_forms/sign_up" %>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+</div>
+
 
 
     <%= yield %>
@@ -55,4 +69,3 @@
 </footer>
 </body>
 </html>
-
