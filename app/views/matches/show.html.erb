@@ -15,7 +15,7 @@
         <%= @pet.bio %>
 
       </p>
-            <a href='#' class='button round'> Contact Shelter </a>
+            <a href='#' class='button round' data-reveal-id="shelter-modal"> Contact Shelter </a>
     </div>
     <div class="medium-4 right match-side">
 
@@ -54,3 +54,11 @@
 
 </section>
 
+
+
+<div id="shelter-modal" class="reveal-modal" data-reveal aria-labelledby="shelter-modal" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">You can find me at <%=@shelter.name %></h2>
+  <p class="lead"><%= @shelter.address %></p>
+  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
