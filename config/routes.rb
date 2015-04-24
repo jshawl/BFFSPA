@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :favorites
 
 
-  resources :pets, only: [:index, :show]
+  resources :pets
 
   resources :shelters do
     resources :pets

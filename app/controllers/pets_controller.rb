@@ -11,8 +11,7 @@ class PetsController < ApplicationController
     end
 
     def edit
-        @pet = Pet.find(params[:id])
-        @shelter = @pet.shelter
+
     end
 
     def new
@@ -50,11 +49,12 @@ class PetsController < ApplicationController
         params.require(:pet).permit(:name, :breed,  :sex, :color, :size, :age, :energy, :kid_friendly, :bio, :picture_url)
     end
     def find_pet
-        if params[:shelter_id]
+        if !params[:shelter_id]
             @pet = Pet.find(params[:id])
         else
             @pet = Pet.find_by(shelter_id: params[:shelter_id], id: params[:id])
         end
+
     end
 
 end
