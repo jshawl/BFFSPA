@@ -3,7 +3,17 @@
 ###We match people with their new best friends!
 
 Best Friends finder is the revolutionary app that help establish life long connections with people and their companions.  
+### The Problem 
+- 7.6 million animals enter animal shelters nationwide every year
+- 2.5 million are adopted each year 
+- 2.7 million animals are euthanized
 
+### The goal
+- Matching people with their perfect pet!
+- Break down barriers 
+- Simplify and streamline the adoption process
+
+### Our App
 you can find to preview the latest release of the best friends finder app, checkout our public beta!
 
 https://bffs-app.herokuapp.com
@@ -11,6 +21,8 @@ https://bffs-app.herokuapp.com
 To view our current sprint backlog visit 
 
 https://trello.com/b/jahbAHJO/bff
+
+### Contribute
 
 Feeling generious and wanting to contribute to our cause?
 
@@ -20,7 +32,7 @@ Feeling generious and wanting to contribute to our cause?
   * git checkout -b feature-branch
 4. Setup the rails app:
   * $ bundle install
-  * $ rake db:createe
+  * $ rake db:create
   * $ rake db:migrate
   * $ rake db:seed
   * $ rails s
