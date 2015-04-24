@@ -2,13 +2,13 @@
   style='background-image: url("<%= @pet.picture_url %>");'>
   <div class="row intro panel match-details ">
   <% if !current_user %>
-  <a href='#' class='button tiny right round' data-reveal-id="sign-in-modal">Sign in to favorite</a>
+  <a href='#' class='button tiny right' data-reveal-id="sign-in-modal">Sign in to favorite</a>
   <% elsif @fav %>
   <h4 class='right'><%= @pet.name %> is a favorite!</h4>
   <% else %>
    <%= form_tag "/favorites" do %>
   <%= hidden_field :pet, :id, value: @pet.id %>
-  <%= submit_tag "Add to favorites!" , class: "button tiny right round "%>
+  <%= submit_tag "Add to favorites!" , class: "button tiny right "%>
   <% end  %>
   <% end %>
     <h2>
@@ -21,7 +21,7 @@
         <%= @pet.bio %>
 
       </p>
-            <a href='#' class='button round' data-reveal-id="shelter-modal"> Contact Shelter </a>
+            <a href='#' class='button' data-reveal-id="shelter-modal"> Contact Shelter </a>
     </div>
     <div class="medium-4 right match-side">
 
@@ -68,7 +68,7 @@
    <%= text_field_tag :user_name, nil, placeholder: "Your Name" %>
    <%= text_field_tag :user_email, nil, placeholder: "Your Email" %>
    <%= text_area_tag :bio, nil, placeholder: "Tell us about your self" %>
-   <%= link_to "Send!", match_path(@pet.id), class: 'button round' %>
+   <%= link_to "Send!", match_path(@pet.id), class: 'button' %>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
