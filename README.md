@@ -31,10 +31,11 @@ Feeling generious and wanting to contribute to our cause?
 3. create a feature branch for your app
   * git checkout -b feature-branch
 4. Setup the rails app:
-  * `$ bundle install`
-  * `$ rake db:create`
-  * `$ rake db:migrate`
-  * `$ rake db:seedrails s`
+  * `bundle install`
+  * `rake db:create`
+  * `rake db:migrate`
+  * `rake db:seed`
+  *  `rails s`
   * App is hosted on http://localhost:3000/
 5. Submit a pull request with all your changes
 
