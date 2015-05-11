@@ -19,8 +19,8 @@
 <%= label_tag(:pet_type_cat, "Cats") %>
 <%= radio_button_tag(:pet_type, "other") %>
 <%= label_tag(:pet_type_other, "Others") %>
-<%= radio_button_tag(:pet_type, "all") %>
-<%= label_tag(:pet_type_all, "All") %>
+<%= radio_button_tag(:pet_type, "") %>
+<%= label_tag(:pet_type_, "All") %>
 
 </div>
 
@@ -28,28 +28,28 @@
 <div class="panel">
 <h2>What size companion are you looking for?</h2>
 
-<%= radio_button_tag(:pet_size, "x-small") %>
-<%= label_tag("pet_size_x-small", "X-Small") %>
-<%= radio_button_tag(:pet_size, "small") %>
-<%= label_tag(:pet_size_small, "Small") %>
-<%= radio_button_tag(:pet_size, "medium") %>
-<%= label_tag(:pet_size_medium, "Medium") %>
-<%= radio_button_tag(:pet_size, "large") %>
-<%= label_tag(:pet_size_large, "Large") %>
-<%= radio_button_tag(:pet_size, "x-large") %>
-<%= label_tag("pet_size_x-large", "X-Large") %>
-<%= radio_button_tag(:pet_size, "all") %>
-<%= label_tag(:pet_size_all, "All") %>
+<%= radio_button_tag(:size, "x-small") %>
+<%= label_tag("size_x-small", "X-Small") %>
+<%= radio_button_tag(:size, "small") %>
+<%= label_tag(:size_small, "Small") %>
+<%= radio_button_tag(:size, "medium") %>
+<%= label_tag(:size_medium, "Medium") %>
+<%= radio_button_tag(:size, "large") %>
+<%= label_tag(:size_large, "Large") %>
+<%= radio_button_tag(:size, "x-large") %>
+<%= label_tag("size_x-large", "X-Large") %>
+<%= radio_button_tag(:size, "") %>
+<%= label_tag(:size_, "All") %>
 </div>
 
 <div class="panel">
   <h2>What gender would you prefer for your pet?</h2>
-<%= radio_button_tag(:pet_gender, "male") %>
-<%= label_tag(:pet_gender_male, "Male") %>
-<%= radio_button_tag(:pet_gender, "female") %>
-<%= label_tag(:pet_gender_female, "Female") %>
-<%= radio_button_tag(:pet_gender, "all") %>
-<%= label_tag(:pet_gender_all, "All") %>
+<%= radio_button_tag(:sex, "male") %>
+<%= label_tag(:sex_male, "Male") %>
+<%= radio_button_tag(:sex, "female") %>
+<%= label_tag(:sex_female, "Female") %>
+<%= radio_button_tag(:sex, "") %>
+<%= label_tag(:sex_, "All") %>
 
 </div>
 
