@@ -1,0 +1,16 @@
+<h1>All Shelters </h1>
+
+<% @shelters.each do |shelter| %>
+<div class='row '>
+    <div class='panel large-12 columns clearfix'>
+         <h3><%= link_to shelter.name, shelter %> </h3>
+         <ul >
+             <li><%= shelter.address %></li>
+              <li><%= shelter.phone %></li>
+              <li><%= shelter.email %></li>
+         </ul>
+
+    </div>
+
+</div>
+<% end %>

@@ -1,0 +1,25 @@
+<h1>
+    Welcome to
+    <%= @shelter.name %></h1>
+
+<div class='medium-12 clearfix puppy-bio' >
+    <img src='<%= @shelter.banner || "http://lorempixel.com/300/300/animals/8/" %>
+    ' class='puppy large right'/>
+    <h3>About us</h3>
+    <p>
+        <%= @shelter.story %>
+          </p>
+</div>
+
+<div class='row large-12 panel'>
+    <h3>Details</h3>
+    <ul >
+        <li > <strong>address:</strong>
+            <%= @shelter.address %></li>
+        <li > <strong>phone:</strong>
+            <%= @shelter.phone %></li>
+        <li >
+            <strong>Email:</strong>
+            <%= @shelter.email %></li>
+    </ul>
+</div>

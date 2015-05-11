@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   resources :favorites
 
 
-  resources :pets
+  resources :pets, only:[:index, :show, :find]
 
   resources :shelters do
-    resources :pets
+    resources :pets, only:[:index, :new, :create, :destroy]
   end
 
   resources :matches, only:[:index, :show, :find]

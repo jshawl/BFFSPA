@@ -1,7 +1,7 @@
 <h1>Welcome to Best Friends Finder</h1>
 <p>choose your friends!</p>
 
-<%= form_tag '/matches/find' do %>
+<%= form_tag '/matches/find', class: "match" do %>
 <% unless current_user %>
 <div class="panel clearfix">
  <h2>Tell us about yourself</h2>
@@ -70,3 +70,31 @@
 
   <%= submit_tag "Search" , class: "button"%>
 <% end %>
+
+<script type="text/javascript">
+    // $(document).ready(function(){
+    //     var FormView = function(){
+    //         this.form = document.querySelector('form.match');
+    //         this.formPanels = [];
+    //         this.initialize();
+
+    //     }
+    //     FormView.prototype.initialize = function(){
+    //         var panels = this.form.querySelectorAll('div.panel');
+    //         var totalPanels = panels.length;
+    //         for (var i = 0; i < totalPanels; i ++){
+    //             panels[i].style.display ='none';
+    //             this.formPanels.push(panels[i]);
+    //         }
+    //         this.formPanels[0].style.display = 'block';
+    //         console.log(this.formPanels);
+    //     }
+    //     FormView.prototype.nextPage = function(){
+
+
+    //     }
+
+    //     var questionForm = new FormView();
+    // });
+
+</script>

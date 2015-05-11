@@ -1,0 +1,29 @@
+<% if @shelter.errors.any? %>
+    <ul>
+    <% @shelter.errors.full_messages.each do |err| %>
+        <li><%= err %></li>
+    <% end %>
+    </ul>
+<% end %>
+<%= form_for @shelter do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+        <%= f.label :story %>
+    <%= f.text_area :story %>
+
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+
+        <%= f.label :email %>
+    <%= f.text_field :email %>
+
+        <%= f.label :banner %>
+    <%= f.text_field :banner %>
+
+
+    <%= f.submit  class: "button "%>
+<% end %>
