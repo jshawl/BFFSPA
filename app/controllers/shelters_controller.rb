@@ -18,7 +18,8 @@ class SheltersController < ApplicationController
     end
 
     def create
-        if @shelter.save?
+         @shelter = Shelter.new(shelter_params)
+        if @shelter.save
             redirect_to @shelter
         else
             show :new
