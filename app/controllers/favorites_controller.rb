@@ -1,8 +1,6 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_user!
   # before any "favoriting" action happens, the above line will authenticate the user.
-
-
     def index
      @pets = current_user.pets
 
