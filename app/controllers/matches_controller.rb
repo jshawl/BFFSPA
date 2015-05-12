@@ -15,7 +15,13 @@ class MatchesController < ApplicationController
 
     def find
         search_results = PetSearch.new(filter_params)
-        redirect_to match_path search_results.pets.first
+       @pet = search_results.pets.first
+       @shelter = @pet.shelter
+
+         respond_to do |format|
+            format.html {render :show, layout: "match_layout"}
+            format.json {render json: search_results.pets.to_json}
+        end
     end
 
     private

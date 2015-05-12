@@ -9,9 +9,10 @@
  <div class="small-6 columns"> <%= text_field_tag :user_name, nil, placeholder: "Your Name" %></div>
 
  <div   class="small-6 columns"><%= text_field_tag :user_zip, nil, placeholder: "Zip Code" %></div>
+ <button id='start' class='primary  radius'>Start</button>
 </div>
 <% end %>
-<div class="panel">
+<div class="panel hide">
 <h2>What type of companion are you looking for?</h2>
 <%= radio_button_tag(:pet_type, "dog") %>
 <%= label_tag(:pet_type_dog, "Dogs") %>
@@ -25,7 +26,7 @@
 </div>
 
 
-<div class="panel">
+<div class="panel hide">
 <h2>What size companion are you looking for?</h2>
 
 <%= radio_button_tag(:size, "x-small") %>
@@ -42,7 +43,7 @@
 <%= label_tag(:size_, "All") %>
 </div>
 
-<div class="panel">
+<div class="panel hide">
   <h2>What gender would you prefer for your pet?</h2>
 <%= radio_button_tag(:sex, "male") %>
 <%= label_tag(:sex_male, "Male") %>
@@ -53,7 +54,7 @@
 
 </div>
 
-<div class="panel">
+<div class="panel hide">
   <h2>What personality would you prefer for your pet?</h2>
 
 
@@ -67,34 +68,53 @@
 <%= label_tag(:pet_personality_4, "Extreme") %>
 
 </div>
-
-  <%= submit_tag "Search" , class: "button"%>
 <% end %>
 
 <script type="text/javascript">
-    // $(document).ready(function(){
-    //     var FormView = function(){
-    //         this.form = document.querySelector('form.match');
-    //         this.formPanels = [];
-    //         this.initialize();
+    $(document).ready(function(){
+         var FormView = function(){
+             this.form = document.querySelector('form.match');
+            this.formPanels = [];
+            this.initialize();
+            this.currentPanel = 0;
 
-    //     }
-    //     FormView.prototype.initialize = function(){
-    //         var panels = this.form.querySelectorAll('div.panel');
-    //         var totalPanels = panels.length;
-    //         for (var i = 0; i < totalPanels; i ++){
-    //             panels[i].style.display ='none';
-    //             this.formPanels.push(panels[i]);
-    //         }
-    //         this.formPanels[0].style.display = 'block';
-    //         console.log(this.formPanels);
-    //     }
-    //     FormView.prototype.nextPage = function(){
+        }
+        //Welcome to Jquery Soup
+        //You should have picked the salad
+        FormView.prototype.initialize = function(){
+            var panels = this.form.querySelectorAll('div.panel');
+            var totalPanels = panels.length;
+            for (var i = 0; i < totalPanels; i ++){
+                panels[i].style.display ='none';
+                this.formPanels.push(panels[i]);
+                var labels = panels[i].querySelectorAll('label');
+                    for(var l = 0; l < labels.length; l++){
+                        labels[l].addEventListener('click', this.nextPage.bind(this));
+                    }
+            }
+            this.formPanels[0].style.display = 'block';
+            this.form.querySelector('button#start').addEventListener('click', this.nextPage.bind(this));
+        }
+        FormView.prototype.nextPage = function(event){
+
+            this.formPanels[this.currentPanel].style.display = 'none'
+            this.currentPanel +=1;
+            if (this.currentPanel >= this.formPanels.length){
+                this.currentPanel = 0;
+                this.submitSearch();
+            }
+            else{
+                this.formPanels[this.currentPanel].style.display = 'block';
+                event.preventDefault();
+            }
+        }
+        FormView.prototype.submitSearch = function(){
+
+        }
+
+        var questionForm = new FormView();
+    });
 
 
-    //     }
-
-    //     var questionForm = new FormView();
-    // });
 
 </script>

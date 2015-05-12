@@ -1,8 +1,7 @@
 class PetSearch
-
     def initialize(params)
         query = filter_params(params)
-        @pets =   Pet.where(query).order('random()').limit(5)
+        @pets =   Pet.joins(:shelter).where(query).order('random()').limit(5)
     end
 
     def pets

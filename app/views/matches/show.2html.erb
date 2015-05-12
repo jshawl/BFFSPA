@@ -1,14 +1,8 @@
- <div class="hero">
- <div class="bg">
-  <img class="hero__background" src="<%= @pet.picture_url %>">
-  </div>
-
-</div>
-<div class="match-panel">
-  <div class="row">
-     <div class="row intro match-details ">
+<section class="hero large-12 columns"
+  style='background-image: url("<%= @pet.picture_url %>");'>
+  <div class="row intro panel match-details ">
   <% if !current_user %>
-  <a href='#' class='button tiny right radius' data-reveal-id="sign-in-modal">Sign in to favorite</a>
+  <a href='#' class='button radius tiny right' data-reveal-id="sign-in-modal">Sign in to favorite</a>
   <% elsif @fav %>
   <h4 class='right'><%= @pet.name %> is a favorite!</h4>
   <% else %>
@@ -27,7 +21,7 @@
         <%= @pet.bio %>
 
       </p>
-            <a href='#' class='button radius' data-reveal-id="shelter-modal"> Contact Shelter </a>
+            <a href='#' class='button' data-reveal-id="shelter-modal"> Contact Shelter </a>
     </div>
     <div class="medium-4 right match-side">
 
@@ -64,8 +58,10 @@
 
   </div>
 
-  </div>
-</div>
+</section>
+
+
+
 <div id="shelter-modal" class="reveal-modal" data-reveal aria-labelledby="shelter-modal" aria-hidden="true" role="dialog">
   <h2 id="modalTitle">You can find me at <%=@shelter.name %></h2>
   <p class="lead"><%= @shelter.address %></p>
@@ -75,3 +71,4 @@
    <%= link_to "Send!", match_path(@pet.id), class: 'button' %>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
+

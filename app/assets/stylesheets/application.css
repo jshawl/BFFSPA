@@ -45,43 +45,79 @@ ul.puppy-details {
     text-align: left;
 }
 
+.hero {
+  background-color: #000;
+  position: relative;
+  width: 100%;
+  padding: 2em 0;
+  z-index: -1;
+  height: 100%;
+}
+.bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+.bg img {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
 
-/********************
-Hero Stuff
-********************/
+  min-width: 100%;
+  -webkit-filter: blur(0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
 
- .hero {
-  background: url("http://lorempixel.com/500/500/animals/8") no-repeat center center;
-  background-size: cover;
-  height: 100vh; }
-  .hero:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    /*background-image: linear-gradient(to bottom right, #002f4b, #dc4225);*/
-    opacity: .8; }
-  .hero .intro {
-    padding: 3rem;
+
+  .hero__title {
     position: relative;
-    top: 50%;
- }
-  .hero h1 {
-    color: #fff;
-    font-size: 1.5rem;
-    line-height: 1.5em;
-    letter-spacing: -0.025em;
-    font-weight: 300;
-    text-align: center; }
-  .hero p {
-    color: #fff;
-    line-height: 1.75em;
-    font-weight: 200;
-    margin-bottom: 2rem; }
+    text-align: center;
+    font-size: 5em;
+    color: white;
+  }
 
-    .hero .panel {
+.match-panel {
+  background-color: rgba(20, 20 , 20, .8);
+  text-align: left;
+  font-size: 1.2rem;
+  padding: 4rem;
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+  .match-panel p.slogan {
+    color: #8d9093;
+    font-size: 1.8rem;
+    margin: 0 0 1rem;
+  }
+  .match-panel p.copywrite {
+    color: #8f9296;
+    font-size: 0.875rem;
+    margin: 0;
+  }
+  .match-panel .links a {
+    list-style: none;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 3rem 0 2rem;
+    margin: 0;
+  }
+    .match-panel .links a::after {
+      content: "•";
+      padding: 0 0.4rem 0 0.8rem;
+    }
+    .match-panel .links a:last-child::after {
+      content: "";
+      padding: 0 0.4rem 0 0.8rem;
+    }
+
+   .hero .panel {
         background-color: rgba(20, 20, 20, 0.5);
     }
 
@@ -104,34 +140,14 @@ Hero Stuff
     .match-details th{
       color: #3AB9DB;
       text-align: right;
-       font-size: 1.75em;
+       font-size: 1.2em;
 
     }
         .match-details td{
       color: white;
- font-size: 1.75em;
- overflow: shrink;
+      font-size: 1.2em;
+}
 
-
-    }
-/*  .hero .tech-img {
-    background: url("http://static.pexels.com/wp-content/uploads/2015/02/apple-hand-iphone-6-4322-525x350.jpg") no-repeat center center;
-    background-size: cover;
-    height: 9rem;
-    width: 9rem;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto; }*/
-  @media only screen and (min-width: 40.063em) {
-    .hero h1 {
-      padding-top: 4.5rem;
-
-      font-size: 2.5rem; }
-    .hero p {
-      } }
-
-/********************
-Hero Stuff
-********************/
-
-
+.match-side{
+  text-align: right;
+}
