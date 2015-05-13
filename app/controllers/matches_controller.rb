@@ -1,7 +1,8 @@
 class MatchesController < ApplicationController
 
     def index
-
+        @pet = Pet.last
+        render layout: "match_layout"
     end
 
     def show

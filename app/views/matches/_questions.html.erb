@@ -1,0 +1,69 @@
+
+<%= form_tag '/matches/find', class: "match" do %>
+<% unless current_user %>
+<div class="panel radius question-panel clearfix">
+ <h2>Tell us about yourself</h2>
+
+ <%= text_field_tag :user_name, nil, placeholder: "Your Name" %>
+
+ <%= text_field_tag :user_zip, nil, placeholder: "Zip Code" %>
+ <button id='start' class='primary  radius'>Start</button>
+</div>
+<% end %>
+<div class="panel radius question-panel hide">
+<h2>What type of companion are you looking for?</h2>
+<%= radio_button_tag(:pet_type, "dog") %>
+<%= label_tag(:pet_type_dog, "Dogs") %>
+<%= radio_button_tag(:pet_type, "cat") %>
+<%= label_tag(:pet_type_cat, "Cats") %>
+<%= radio_button_tag(:pet_type, "other") %>
+<%= label_tag(:pet_type_other, "Others") %>
+<%= radio_button_tag(:pet_type, "") %>
+<%= label_tag(:pet_type_, "All") %>
+
+</div>
+
+
+<div class="panel radius question-panel hide">
+<h2>What size companion are you looking for?</h2>
+
+<%= radio_button_tag(:size, "x-small") %>
+<%= label_tag("size_x-small", "X-Small") %>
+<%= radio_button_tag(:size, "small") %>
+<%= label_tag(:size_small, "Small") %>
+<%= radio_button_tag(:size, "medium") %>
+<%= label_tag(:size_medium, "Medium") %>
+<%= radio_button_tag(:size, "large") %>
+<%= label_tag(:size_large, "Large") %>
+<%= radio_button_tag(:size, "x-large") %>
+<%= label_tag("size_x-large", "X-Large") %>
+<%= radio_button_tag(:size, "") %>
+<%= label_tag(:size_, "All") %>
+</div>
+
+<div class="panel radius question-panel hide">
+  <h2>What gender would you prefer for your pet?</h2>
+<%= radio_button_tag(:sex, "male") %>
+<%= label_tag(:sex_male, "Male") %>
+<%= radio_button_tag(:sex, "female") %>
+<%= label_tag(:sex_female, "Female") %>
+<%= radio_button_tag(:sex, "") %>
+<%= label_tag(:sex_, "All") %>
+
+</div>
+
+<div class="panel radius question-panel hide">
+  <h2>What personality would you prefer for your pet?</h2>
+
+
+<%= radio_button_tag(:pet_personality, "1") %>
+<%= label_tag(:pet_personality_1, "Loyal Companion") %>
+<%= radio_button_tag(:pet_personality, "2") %>
+<%= label_tag(:pet_personality_2, "Family Friendly") %>
+<%= radio_button_tag(:pet_personality, "3") %>
+<%= label_tag(:pet_personality_3, "Sporty, High Energy") %>
+<%= radio_button_tag(:pet_personality, "4") %>
+<%= label_tag(:pet_personality_4, "Extreme") %>
+
+</div>
+<% end %>

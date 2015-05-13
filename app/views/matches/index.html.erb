@@ -1,84 +1,20 @@
+ <main class='pet-home content row'>
 <h1>Welcome to Best Friends Finder</h1>
-<p>choose your friends!</p>
+    <%= render 'questions' %>
 
-<%= form_tag '/matches/find', class: "match" do %>
-<% unless current_user %>
-<div class="panel clearfix">
- <h2>Tell us about yourself</h2>
-
- <div class="small-6 columns"> <%= text_field_tag :user_name, nil, placeholder: "Your Name" %></div>
-
- <div   class="small-6 columns"><%= text_field_tag :user_zip, nil, placeholder: "Zip Code" %></div>
- <button id='start' class='primary  radius'>Start</button>
-</div>
-<% end %>
-<div class="panel hide">
-<h2>What type of companion are you looking for?</h2>
-<%= radio_button_tag(:pet_type, "dog") %>
-<%= label_tag(:pet_type_dog, "Dogs") %>
-<%= radio_button_tag(:pet_type, "cat") %>
-<%= label_tag(:pet_type_cat, "Cats") %>
-<%= radio_button_tag(:pet_type, "other") %>
-<%= label_tag(:pet_type_other, "Others") %>
-<%= radio_button_tag(:pet_type, "") %>
-<%= label_tag(:pet_type_, "All") %>
-
-</div>
-
-
-<div class="panel hide">
-<h2>What size companion are you looking for?</h2>
-
-<%= radio_button_tag(:size, "x-small") %>
-<%= label_tag("size_x-small", "X-Small") %>
-<%= radio_button_tag(:size, "small") %>
-<%= label_tag(:size_small, "Small") %>
-<%= radio_button_tag(:size, "medium") %>
-<%= label_tag(:size_medium, "Medium") %>
-<%= radio_button_tag(:size, "large") %>
-<%= label_tag(:size_large, "Large") %>
-<%= radio_button_tag(:size, "x-large") %>
-<%= label_tag("size_x-large", "X-Large") %>
-<%= radio_button_tag(:size, "") %>
-<%= label_tag(:size_, "All") %>
-</div>
-
-<div class="panel hide">
-  <h2>What gender would you prefer for your pet?</h2>
-<%= radio_button_tag(:sex, "male") %>
-<%= label_tag(:sex_male, "Male") %>
-<%= radio_button_tag(:sex, "female") %>
-<%= label_tag(:sex_female, "Female") %>
-<%= radio_button_tag(:sex, "") %>
-<%= label_tag(:sex_, "All") %>
-
-</div>
-
-<div class="panel hide">
-  <h2>What personality would you prefer for your pet?</h2>
-
-
-<%= radio_button_tag(:pet_personality, "1") %>
-<%= label_tag(:pet_personality_1, "Loyal Companion") %>
-<%= radio_button_tag(:pet_personality, "2") %>
-<%= label_tag(:pet_personality_2, "Family Friendly") %>
-<%= radio_button_tag(:pet_personality, "3") %>
-<%= label_tag(:pet_personality_3, "Sporty, High Energy") %>
-<%= radio_button_tag(:pet_personality, "4") %>
-<%= label_tag(:pet_personality_4, "Extreme") %>
-
-</div>
-<% end %>
-
+</main>
+    <%= render 'match' %>
 <script type="text/javascript">
     $(document).ready(function(){
          var FormView = function(){
-             this.form = document.querySelector('form.match');
+            this.form = document.querySelector('form.match');
+            this.petView = document.querySelector('#match-panel');
             this.formPanels = [];
             this.initialize();
             this.currentPanel = 0;
 
         }
+
         //Welcome to Jquery Soup
         //You should have picked the salad
         FormView.prototype.initialize = function(){
@@ -109,10 +45,57 @@
             }
         }
         FormView.prototype.submitSearch = function(){
-
+            PetModel.fetch("", this.showPets.bind(this) );
+        }
+        FormView.prototype.showPets = function(pets){
+            document.querySelector('main').style.display = 'none';
+            var pet = pets[0];
+            var petView = document.getElementById('match-panel');
+            //so sorry for all this mess
+            this.setPetField('pet-name', pet.name);
+            this.setPetField('pet-bio', pet.bio);
+            this.setPetField('pet-breed', pet.breed);
+            this.setPetField('pet-sex', pet.sex);
+            this.setPetField('pet-color', pet.color);
+            this.setPetField('pet-size', pet.size);
+            this.setPetField('pet-energy', pet.energy);
+            document.getElementById('pet-image').src = pet.picture_url;
+        }
+        FormView.prototype.setPetField = function (id, value){
+            this.petView.querySelector("#" + id).innerHTML = value;
         }
 
+        var PetModel = function(){
+
+        }
+        PetModel.fetch = function (petQuery, callback){
+         $.ajax({
+             type: 'POST',
+                data: {pet_type: 'cat', size: 'medium' },
+                dataType: 'json',
+                url: "/matches/find.json",
+                context: this,
+                headers: {'authenticity_token': $('meta[name="csrf-token"]').attr('content')}
+            }).done(function(response) {
+               var results = []
+               for (var i = 0; i < response.length ; i++){
+                var  item = response[i];
+                var newPet = new PetModel();
+                for (var prop in item){
+                    newPet[prop] = item[prop];
+                }
+                results.push(newPet);
+               }
+               callback(results);
+            }).fail(function(response){
+                console.log("js failed to load")
+            })
+        }
+
+
         var questionForm = new FormView();
+
+
     });
 
 

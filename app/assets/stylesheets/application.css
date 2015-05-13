@@ -55,10 +55,11 @@ ul.puppy-details {
 }
 .bg {
   position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
+  top:0;
+  left:  0;
+  width: 100%;
+  height: 100%;
+    background-color: #000;
 }
 .bg img {
   position: absolute;
@@ -80,12 +81,18 @@ ul.puppy-details {
     font-size: 5em;
     color: white;
   }
+.question-panel{
+  background-color: rgba(51, 51 , 51, .8);
+  border-color: #666;
+}
+.match-panel, .question-panel{
 
-.match-panel {
-  background-color: rgba(20, 20 , 20, .8);
   text-align: left;
   font-size: 1.2rem;
   padding: 4rem;
+}
+.match-panel{
+  background-color: rgba(51, 51 , 51, .8);
 
   position: absolute;
   bottom: 0;
@@ -121,7 +128,9 @@ ul.puppy-details {
         background-color: rgba(20, 20, 20, 0.5);
     }
 
-    .match-details h2, .match-details h3, .match-details h4 {
+    .match-details h2, .match-details h3, .match-details h4,
+    .question-panel h2, .question-panel h3, .question-panel h4,
+    .pet-home h1, .pet-home h2, .pet-home h3 {
         color: #3AB9DB;
     }
     .match-details p {
@@ -150,4 +159,16 @@ ul.puppy-details {
 
 .match-side{
   text-align: right;
+}
+
+.question-panel{
+  color: white;
+}
+.question-panel input[type='radio']{
+  display: none;
+}
+.question-panel label{
+  color: white;
+      font-size: 1.2em;
+      font-weight: 600;
 }
