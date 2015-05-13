@@ -62,9 +62,14 @@
             this.setPetField('pet-size', pet.size);
             this.setPetField('pet-energy', pet.energy);
             document.getElementById('pet-image').src = pet.picture_url;
+            this.turnOnPetView();
         }
         FormView.prototype.setPetField = function (id, value){
             this.petView.querySelector("#" + id).innerHTML = value;
+        }
+        FormView.prototype.turnOnPetView = function(){
+            $('#pet-image').fadeIn(800);
+            $(this.petView).fadeIn(800);
         }
 
         var PetModel = function(){
