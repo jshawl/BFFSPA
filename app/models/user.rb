@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_one :user_profile
+  belongs_to :shelter
   has_many :favorites
   has_many :pets, through: :favorites
   enum role: { registered: 0, employee: 1, admin:2 }

@@ -12,6 +12,7 @@ shelter_b = Shelter.create(name: "Fosters's Home For Best Friends", address: "22
 shelter_c = Shelter.create(name: "Best Friends Forever", address: "1337 street, \n Baltimore, MD", phone: "301-555-5555", email: "tim@sheltera.com" )
 shelter_d = Shelter.create(name: "Jimmys Pet Shelter", address: "3333 pets street, \n Blacksburg, VA", phone: "540-555-5555", email: "john@sheltera.com" )
 
+
 # shelter_a.pets.create([{
 #     name: "Zoey",
 #     breed: "Beagle",
@@ -53,7 +54,7 @@ shelter_d = Shelter.create(name: "Jimmys Pet Shelter", address: "3333 pets stree
 #     energy: 5,
 #     kid_friendly: true}])
 
-shelter_a.pets.create([{
+Pet.create([{
     name: "Stew",
     pet_type: "dog",
     bio: "Stewie comes to us from Aaron",
@@ -64,7 +65,8 @@ shelter_a.pets.create([{
     age: "years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/uSD7Sal.png"
+    picture_url:"https://i.imgur.com/uSD7Sal.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Couch Stewiew",
@@ -77,9 +79,9 @@ shelter_a.pets.create([{
     age: "years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/KKLuOI6.png"
+    picture_url:"https://i.imgur.com/KKLuOI6.png",
+    shelter_id: rand(1..4)
 },
-
 {
     name: "Andrians Puppy",
     pet_type: "dog",
@@ -91,9 +93,9 @@ shelter_a.pets.create([{
     age: "years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/tStmzfC.png"
+    picture_url:"https://i.imgur.com/tStmzfC.png",
+    shelter_id: rand(1..4)
 },
-
 {
     name: "Turkey Legs",
     pet_type: "dog",
@@ -105,9 +107,9 @@ shelter_a.pets.create([{
     age: "3 years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"http://i.imgur.com/fjiRcDR.png"
+    picture_url:"http://i.imgur.com/fjiRcDR.png",
+    shelter_id: rand(1..4)
 },
-
 {
     name: "Dallas",
     pet_type: "dog",
@@ -119,7 +121,8 @@ shelter_a.pets.create([{
     age: "3 years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/ySfP6zq.png"
+    picture_url:"https://i.imgur.com/ySfP6zq.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Hacker Petey",
@@ -132,9 +135,9 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/7CX7OTc.png"
+    picture_url:"https://i.imgur.com/7CX7OTc.png",
+    shelter_id: rand(1..4)
 },
-
 {
     name: "Petey",
     pet_type: "other",
@@ -146,7 +149,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/fkt885y.png"
+    picture_url:"https://i.imgur.com/fkt885y.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Samson-Yeung",
@@ -159,9 +163,9 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/fMshfV1.png"
+    picture_url:"https://i.imgur.com/fMshfV1.png",
+    shelter_id: rand(1..4)
 },
-
 {
     name: "Tuzi",
     pet_type: "other",
@@ -173,9 +177,9 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/YDi3ZkK.png"
+    picture_url:"https://i.imgur.com/YDi3ZkK.png",
+    shelter_id: rand(1..4)
 },
-
 {
     name: "Chloe",
     pet_type: "dog",
@@ -187,9 +191,9 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/DODg2Xl.png"
+    picture_url:"https://i.imgur.com/DODg2Xl.png",
+    shelter_id: rand(1..4)
 },
-
 {
     name: "Badger",
     pet_type: "cat",
@@ -201,11 +205,9 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/cOe9bb6.png"
+    picture_url:"https://i.imgur.com/cOe9bb6.png",
+    shelter_id: rand(1..4)
 },
-
-
-
 {
     name: "Duch",
     pet_type: "dog",
@@ -217,7 +219,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/OJ6I7k7.png"
+    picture_url:"https://i.imgur.com/OJ6I7k7.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Angela Lansbury",
@@ -230,7 +233,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/mPYgTkH.png"
+    picture_url:"https://i.imgur.com/mPYgTkH.png",
+    shelter_id: rand(1..4)
 },
 
 {
@@ -244,7 +248,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"http://i.imgur.com/t2VpbTe.png"
+    picture_url:"http://i.imgur.com/t2VpbTe.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Danerys",
@@ -257,7 +262,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"http://i.imgur.com/3vnW28a.png"
+    picture_url:"http://i.imgur.com/3vnW28a.png",
+    shelter_id: rand(1..4)
 },
 
 {
@@ -271,7 +277,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/yDXyy13.png"
+    picture_url:"https://i.imgur.com/yDXyy13.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Bright Eyes",
@@ -284,7 +291,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/a0PXEFv.png"
+    picture_url:"https://i.imgur.com/a0PXEFv.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Simba",
@@ -297,7 +305,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"http://i.imgur.com/JaiZwaf.png"
+    picture_url:"http://i.imgur.com/JaiZwaf.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Tucker",
@@ -310,7 +319,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/rPycgv3.png"
+    picture_url:"https://i.imgur.com/rPycgv3.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Chip",
@@ -323,7 +333,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/V6E4PAH.png"
+    picture_url:"https://i.imgur.com/V6E4PAH.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Christmas Voldeemort",
@@ -336,7 +347,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/KvWom8r.jpg"
+    picture_url:"https://i.imgur.com/KvWom8r.jpg",
+    shelter_id: rand(1..4)
 },
 {
     name: "Remus",
@@ -349,9 +361,9 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/1AifeeM.jpg"
+    picture_url:"https://i.imgur.com/1AifeeM.jpg",
+    shelter_id: rand(1..4)
 },
-
 {
     name: "Voldemort",
     pet_type: "dog",
@@ -363,7 +375,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/7oUtgA9.png"
+    picture_url:"https://i.imgur.com/7oUtgA9.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Piggy and Vamonos",
@@ -376,7 +389,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"http://i.imgur.com/FHbp7SI.png"
+    picture_url:"http://i.imgur.com/FHbp7SI.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Winter Remus",
@@ -389,7 +403,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"http://i.imgur.com/JBFRgMy.png"
+    picture_url:"http://i.imgur.com/JBFRgMy.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Voldemort",
@@ -402,10 +417,9 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"http://i.imgur.com/pm8cHX8.png"
+    picture_url:"http://i.imgur.com/pm8cHX8.png",
+    shelter_id: rand(1..4)
 },
-
-
 {
     name: "Kendall",
     pet_type: "dog",
@@ -417,10 +431,9 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"http://i.imgur.com/9IOy30x.png"
+    picture_url:"http://i.imgur.com/9IOy30x.png",
+    shelter_id: rand(1..4)
 },
-
-
 {
     name: "Miss Jack",
     pet_type: "dog",
@@ -432,7 +445,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"http://i.imgur.com/n0FcUYs.jpg"
+    picture_url:"http://i.imgur.com/n0FcUYs.jpg",
+    shelter_id: rand(1..4)
 },
 
 {
@@ -446,7 +460,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/aVk5TWh.png"
+    picture_url:"https://i.imgur.com/aVk5TWh.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Zoe",
@@ -459,7 +474,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/ZTjYwKU.png"
+    picture_url:"https://i.imgur.com/ZTjYwKU.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Zoe",
@@ -472,7 +488,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"http://i.imgur.com/iQWrOJt.png"
+    picture_url:"http://i.imgur.com/iQWrOJt.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Atti",
@@ -485,7 +502,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/TeU9vEG.png"
+    picture_url:"https://i.imgur.com/TeU9vEG.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Tiny Rory",
@@ -498,7 +516,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/ZjvFGU9.png"
+    picture_url:"https://i.imgur.com/ZjvFGU9.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Rory",
@@ -511,7 +530,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/z0wwrEX.png"
+    picture_url:"https://i.imgur.com/z0wwrEX.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Obie",
@@ -524,7 +544,8 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/xqMLmyZ.png"
+    picture_url:"https://i.imgur.com/xqMLmyZ.png",
+    shelter_id: rand(1..4)
 },
 {
     name: "Mobile Obie",
@@ -537,5 +558,6 @@ shelter_a.pets.create([{
     age: "(n) years",
     energy: 3,
     kid_friendly: true,
-    picture_url:"https://i.imgur.com/n4ORWzn.png"
+    picture_url:"https://i.imgur.com/n4ORWzn.png",
+    shelter_id: rand(1..4)
 }])

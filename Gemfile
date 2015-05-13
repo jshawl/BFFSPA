@@ -28,6 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'foundation-rails'
 gem 'jquery-turbolinks'
+gem 'cancancan', '~> 1.10'
 
 
 # Use ActiveModel has_secure_password

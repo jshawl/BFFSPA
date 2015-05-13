@@ -1,6 +1,6 @@
 class SheltersController < ApplicationController
     before_action :find_shelter, only: [:show, :edit, :update, :destroy]
-
+    authorize_resource
     def index
         @shelters = Shelter.all
     end
@@ -32,6 +32,11 @@ class SheltersController < ApplicationController
         else
             show :edit
         end
+    end
+
+    def destroy
+        @shelter.destroy
+        redirect_to shelters_url
     end
 
     private

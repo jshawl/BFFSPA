@@ -1,5 +1,6 @@
 class PetsController < ApplicationController
     before_action :find_pet, only: [:show, :edit, :update, :destroy]
+    authorize_resource
 
     def index
         @pets = Pet.all()
@@ -53,6 +54,7 @@ class PetsController < ApplicationController
             @pet = Pet.find(params[:id])
         else
             @pet = Pet.find_by(shelter_id: params[:shelter_id], id: params[:id])
+            @shelter = @pet.shelter
         end
 
     end

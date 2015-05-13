@@ -1,25 +1,44 @@
+
 <h1>
     Welcome to
     <%= @shelter.name %></h1>
-
-<div class='medium-12 clearfix puppy-bio' >
-    <img src='<%= @shelter.banner || "http://lorempixel.com/300/300/animals/8/" %>
-    ' class='puppy large right'/>
+    <img src='<%=  "http://lorempixel.com/300/300/nature/" %>
+    ' class=' medium-3 right'/>
     <h3>About us</h3>
+<div class='medium-8 clearfix puppy-bio' >
+
     <p>
         <%= @shelter.story %>
           </p>
 </div>
+<div class='medium-3 panel right'>
 
-<div class='row large-12 panel'>
     <h3>Details</h3>
     <ul >
-        <li > <strong>address:</strong>
+        <li > <strong>Address:</strong>
             <%= @shelter.address %></li>
-        <li > <strong>phone:</strong>
+        <li > <strong>Phone:</strong>
             <%= @shelter.phone %></li>
         <li >
             <strong>Email:</strong>
             <%= @shelter.email %></li>
     </ul>
+    <%= link_to 'Edit', edit_shelter_path(@shelter), class: 'button tiny radius' %>
+    <%= link_to 'Delete', @shelter, method: :delete, data: {confirm: 'Are you sure you want to delete this shelter?'}, class: 'button tiny radius' %>
+</div>
+<div class=' medium-8 columns  left shelter-pets'>
+<h3>Meet our family
+ - <small><%= link_to 'add more', new_shelter_pet_path(@shelter) %></small>
+ </h3>
+<% @shelter.pets.each do |pet| %>
+    <div class='medium-4 clearfix  columns left' >
+        <img src='<%= pet.picture_url || "http://lorempixel.com/300/300/animals/8/" %>'
+         class='tiny th' />
+         <ul class=''>
+              <li><%= link_to pet.name, [@shelter,pet] %></li>
+              <li><%= pet.color %> <%= pet.breed %></li>
+             <li><%= pet.sex[0].upcase %> - <%= pet.age %></li>
+         </ul>
+    </div>
+<% end %>
 </div>

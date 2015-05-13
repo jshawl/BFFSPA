@@ -1,35 +1,39 @@
 <h1>
     Meet
     <%= @pet.name.capitalize %></h1>
+    <div class='medium-4 columns right '>
+        <img src='<%= @pet.picture_url || "http://lorempixel.com/300/300/animals/8/" %>
+    ' class='puppy large'/>
+    <br> <!-- yeah br tag, i am over this stupid button placement -->
+    <%= link_to 'Edit', edit_shelter_pet_path(@shelter, @pet), class: 'button tiny radius' %>
+    <%= link_to 'Delete', shelter_pet_path(@shelter,@pet), method: :delete, data: {confirm: 'Are you sure you want to delete this pet?'}, class: 'button tiny radius' %>
+</div>
+<div class='medium-8 columns left puppy-bio' >
 
-<div class='medium-12 clearfix puppy-bio' >
-    <img src='<%= @pet.picture_url || "http://lorempixel.com/300/300/animals/8/" %>
-    '
-         class='puppy large right'/>
     <h3>My story</h3>
     <p>
         <%= @pet.bio %>
           </p>
-</div>
-
-<div class='row large-12 panel puppy-information'>
-    <h3>Puppy Details</h3>
+          <div class='puppy-information'>
+          <h3>Puppy Details</h3>
     <ul >
-        <li class='medium-4 column'> <strong>Name:</strong>
+        <li class='medium-4 column left'> <strong>Name:</strong>
             <%= @pet.name %></li>
-        <li class='medium-4 column'> <strong>Breed:</strong>
+        <li class='medium-4 column left'> <strong>Breed:</strong>
             <%= @pet.breed %></li>
-        <li class='medium-4 column'>
+        <li class='medium-4 column left'>
             <strong>Sex:</strong>
             <%= @pet.sex %></li>
-        <li class='medium-4 column'>
+        <li class='medium-4 column left'>
             <strong>Color:</strong>
             <%= @pet.color %></li>
-        <li class='medium-4 column'>
+        <li class='medium-4 column left'>
             <strong>Size:</strong>
             <%= @pet.size %></li>
-        <li class='medium-4 column'>
+        <li class='medium-4 column left'>
             <strong>Kid Friendly:</strong>
             <%= @pet.kid_friendly %></li>
-    </ul>
+        </ul>
 </div>
+</div>
+

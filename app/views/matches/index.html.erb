@@ -29,7 +29,9 @@
                     }
             }
             this.formPanels[0].style.display = 'block';
-            this.form.querySelector('button#start').addEventListener('click', this.nextPage.bind(this));
+            var startButton =  this.form.querySelector('button#start');
+            if(startButton)
+                startButton.addEventListener('click', this.nextPage.bind(this));
         }
         FormView.prototype.nextPage = function(event){
 
