@@ -43,15 +43,24 @@
             }
             else{
                 this.formPanels[this.currentPanel].style.display = 'block';
-                event.preventDefault();
+
             }
         }
         FormView.prototype.submitSearch = function(){
-            PetModel.fetch("", this.showPets.bind(this) );
+            console.log(this.form.pet_type.value);
+            console.log(this.form.sex.value);
+            console.log(this.form.size.value);
+            console.log(this.form.pet_personality.value);
+            var petAPI = new PetAPI(this.form.pet_type.value, this.form.sex.value, this.form.size.value, this.form.pet_personality.value);
+            petAPI.fetch("", this.showPets.bind(this) );
         }
         FormView.prototype.showPets = function(pets){
             document.querySelector('main').style.display = 'none';
             var pet = pets[0];
+            this.renderPet(pet);
+
+        }
+        FormView.prototype.renderPet = function(pet){
             var petView = document.getElementById('match-panel');
             //so sorry for all this mess
             this.setPetField('pet-name', pet.name);
@@ -64,6 +73,7 @@
             document.getElementById('pet-image').src = pet.picture_url;
             this.turnOnPetView();
         }
+
         FormView.prototype.setPetField = function (id, value){
             this.petView.querySelector("#" + id).innerHTML = value;
         }
@@ -71,14 +81,21 @@
             $('#pet-image').fadeIn(800);
             $(this.petView).fadeIn(800);
         }
-
         var PetModel = function(){
 
         }
-        PetModel.fetch = function (petQuery, callback){
+
+        var PetAPI = function(type, sex, size, personality){
+            this.type = type;
+            this.sex = sex;
+            this.size = size;
+            this.personality = personality;
+        }
+
+        PetAPI.prototype.fetch = function (petQuery, callback){
          $.ajax({
              type: 'POST',
-                data: {pet_type: 'cat', size: 'medium' },
+                data: {pet_type:this.type, size: this.size, sex: this.sex, personality: this.personality },
                 dataType: 'json',
                 url: "/matches/find.json",
                 context: this,
