@@ -40,6 +40,8 @@
                 startButton.addEventListener('click', this.nextPage.bind(this));
         }
         FormView.prototype.nextPage = function(event){
+            if(event.target.tagName.toLowerCase() === 'button')
+                event.preventDefault();
 
             this.formPanels[this.currentPanel].style.display = 'none'
             this.currentPanel +=1;
@@ -102,7 +104,13 @@
         }
         FormView.prototype.saveFavorite = function(event){
             event.preventDefault();
-            this.api.addToFavorites(this.pets[this.currentPetIndex].id);
+            this.api.addToFavorites(this.pets[this.currentPetIndex].id, this.addedFavorite.bind(this));
+        }
+        FormView.prototype.addedFavorite = function(response){
+
+            document.getElementById('favorites-count').innerText = 'Favorites (' + response+')'
+            this.petView.querySelector("#add-favorite").style.display = 'none';
+            this.petView.querySelector("#added-favorite").style.display = 'block';
         }
 
 
@@ -148,7 +156,6 @@
                 context: this,
                 headers: {'authenticity_token': $('meta[name="csrf-token"]').attr('content')}
             }).done(function(response){
-                document.getElementById('favorites-count').innerText = 'Favorites (' + response+')'
                   console.log(response)
                 if(callback)
                     callback(response);
