@@ -129,8 +129,7 @@
                 data: {pet_type:this.type, size: this.size, sex: this.sex, personality: this.pet_personality },
                 dataType: 'json',
                 url: "/matches/find.json",
-                context: this,
-                headers: {'authenticity_token': $('meta[name="csrf-token"]').attr('content')}
+                context: this
             }).done(function(response) {
                var results = []
                for (var i = 0; i < response.length ; i++){
@@ -153,8 +152,7 @@
                 data: {pet:{id: petID}},
                 dataType: 'json',
                 url: "/favorites",
-                context: this,
-                headers: {'authenticity_token': $('meta[name="csrf-token"]').attr('content')}
+                context: this
             }).done(function(response){
                   console.log(response)
                 if(callback)
