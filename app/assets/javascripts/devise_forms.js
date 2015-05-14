@@ -1,43 +1,34 @@
 $(document).ready(function(){
     var DeviseAPI = function(){
-
+        this.loginPath = "/users/sign_in",
+        this.signUpPath = "/users";
     }
-    DeviseAPI.signUp = function(user,callback){
-        console.log(user);
+    DeviseAPI.fetch = function(path, user,success,failback){
 
-        $.ajax({
+         $.ajax({
             type: 'POST',
             data:{user} ,
             dataType: 'json',
-            url: "/users",
+            url: path,
             context: this
         }).done(function(response){
-
-            console.log(response)
-            if(callback)
-                callback(response);
+            console.log(arguments)
+            if(success)
+                success(response);
         }).fail(function(response){
             console.log(response);
+            if(failback)
+                failback(response);
         });
     }
 
-    DeviseAPI.signIn = function(user, callback){
-        console.log(user);
 
-        $.ajax({
-            type: 'POST',
-            data:{user} ,
-            dataType: 'json',
-            url: "/users/sign_in",
-            context: this
-        }).done(function(response){
+    DeviseAPI.signUp = function(user,callback,failback){
+        DeviseAPI.fetch("/users",user,callback,failback)
+    }
 
-            console.log(response)
-            if(callback)
-                callback(response);
-        }).fail(function(response){
-            console.log(response);
-        });
+    DeviseAPI.signIn = function(user, callback,failback){
+        DeviseAPI.fetch("/users/sign_in",user,callback,failback)
     }
 
 
@@ -67,8 +58,15 @@ $(document).ready(function(){
             first_name : this.last_name.value
         };
 
-        DeviseAPI.signUp(user);
+        DeviseAPI.signUp(user,this.success.bind(this), this.fail.bind(this));
     }
+    SignUpForm.prototype.success = function(response){
+         $('#sign-up-modal').foundation('reveal', 'close');
+    }
+    SignUpForm.prototype.fail = function(response){
+        console.log(response);
+    }
+
 
     var SignInForm = function(){
         this.form = document.querySelector('#sign-in-form form');
@@ -91,12 +89,17 @@ $(document).ready(function(){
             remember_me: 1
         };
 
-        DeviseAPI.signIn(user);
+        DeviseAPI.signIn(user,this.success.bind(this), this.fail.bind(this));
 
     }
+    SignInForm.prototype.success = function(response){
+         $('#sign-in-modal').foundation('reveal', 'close');
+    }
+    SignInForm.prototype.fail = function(response){
+        console.log(response);
+    }
 
-
-
+    //$('#shelter-modal').foundation('reveal', 'close');
 
     var signInForm = new SignInForm();
     var signUpForm = new SignUpForm();
