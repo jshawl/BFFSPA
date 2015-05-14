@@ -5,8 +5,12 @@
         <img src='<%= @pet.picture_url || "http://lorempixel.com/300/300/animals/8/" %>
     ' class='puppy large'/>
     <br> <!-- yeah br tag, i am over this stupid button placement -->
+    <% if can? :update, @pet %>
     <%= link_to 'Edit', edit_shelter_pet_path(@shelter, @pet), class: 'button tiny radius' %>
+    <% end %>
+    <% if can? :delete, @pet %>
     <%= link_to 'Delete', shelter_pet_path(@shelter,@pet), method: :delete, data: {confirm: 'Are you sure you want to delete this pet?'}, class: 'button tiny radius' %>
+    <% end %>
 </div>
 <div class='medium-8 columns left puppy-bio' >
 

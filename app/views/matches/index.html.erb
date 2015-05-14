@@ -6,12 +6,18 @@
     <%= render 'match' %>
 <script type="text/javascript">
     $(document).ready(function(){
+        var PetModel = function(){
+
+        }
          var FormView = function(){
             this.form = document.querySelector('form.match');
             this.petView = document.querySelector('#match-panel');
             this.formPanels = [];
             this.initialize();
             this.currentPanel = 0;
+            this.api = new PetAPI();
+            this.pets = [];
+            this.currentPetIndex=  0;
 
         }
 
@@ -51,17 +57,21 @@
             console.log(this.form.sex.value);
             console.log(this.form.size.value);
             console.log(this.form.pet_personality.value);
-            var petAPI = new PetAPI(this.form.pet_type.value, this.form.sex.value, this.form.size.value, this.form.pet_personality.value);
-            petAPI.fetch("", this.showPets.bind(this) );
+            this.api.pet_type = this.form.pet_type.value;
+            this.api.sex = this.form.sex.value;
+            this.api.size =  this.form.size.value;
+            this.api.pet_personality = this.form.pet_personality.value;
+            this.api.fetch( this.showPets.bind(this) );
         }
         FormView.prototype.showPets = function(pets){
             document.querySelector('main').style.display = 'none';
-            var pet = pets[0];
+            this.pets = pets;
+            var pet = pets[this.currentPetIndex];
             this.renderPet(pet);
 
         }
         FormView.prototype.renderPet = function(pet){
-            var petView = document.getElementById('match-panel');
+            console.log(pet);
             //so sorry for all this mess
             this.setPetField('pet-name', pet.name);
             this.setPetField('pet-bio', pet.bio);
@@ -72,6 +82,8 @@
             this.setPetField('pet-energy', pet.energy);
             document.getElementById('pet-image').src = pet.picture_url;
             this.turnOnPetView();
+            this.petView.querySelector("#add-favorite").addEventListener('click', this.saveFavorite.bind(this));
+            this.shelterModal();
         }
 
         FormView.prototype.setPetField = function (id, value){
@@ -79,23 +91,34 @@
         }
         FormView.prototype.turnOnPetView = function(){
             $('#pet-image').fadeIn(800);
-            $(this.petView).fadeIn(800);
+            $(this.petView).fadeIn(1000);
         }
-        var PetModel = function(){
+        FormView.prototype.shelterModal = function(){
+            var modal = document.getElementById('shelter-modal');
+            var sendButton = modal.querySelector('#send');
+            sendButton.addEventListener('click',function(){
+                $('#shelter-modal').foundation('reveal', 'close');
+            });
+        }
+        FormView.prototype.saveFavorite = function(event){
+            event.preventDefault();
+            this.api.addToFavorites(this.pets[this.currentPetIndex].id);
+        }
 
-        }
+
+
 
         var PetAPI = function(type, sex, size, personality){
-            this.type = type;
+            this.pet_type = type;
             this.sex = sex;
             this.size = size;
-            this.personality = personality;
+            this.pet_personality = personality;
         }
 
-        PetAPI.prototype.fetch = function (petQuery, callback){
+        PetAPI.prototype.fetch = function (callback){
          $.ajax({
              type: 'POST',
-                data: {pet_type:this.type, size: this.size, sex: this.sex, personality: this.personality },
+                data: {pet_type:this.type, size: this.size, sex: this.sex, personality: this.pet_personality },
                 dataType: 'json',
                 url: "/matches/find.json",
                 context: this,
@@ -115,10 +138,27 @@
                 console.log("js failed to load")
             })
         }
+        PetAPI.prototype.addToFavorites = function (petID,callback){
+            //refactor these methods to seprate API method
+            $.ajax({
+             type: 'POST',
+                data: {pet:{id: petID}},
+                dataType: 'json',
+                url: "/favorites",
+                context: this,
+                headers: {'authenticity_token': $('meta[name="csrf-token"]').attr('content')}
+            }).done(function(response){
+                document.getElementById('favorites-count').innerText = 'Favorites (' + response+')'
+                  console.log(response)
+                if(callback)
+                    callback(response);
+            }).fail(function(response){
+                console.log(response);
+            })
 
+        }
 
         var questionForm = new FormView();
-
 
     });
 

@@ -8,7 +8,11 @@ class FavoritesController < ApplicationController
     def create
       @pet = Pet.find(params[:pet][:id])
       @favorite  = Favorite.find_or_create_by(user_id: current_user.id, pet_id: @pet.id)
-      redirect_to match_url(@pet.id)
+      respond_to do |format|
+        format.html {redirect_to match_url(@pet.id)}
+        format.json {render json: current_user.favorites.count}
+      end
+
     end
 
 end

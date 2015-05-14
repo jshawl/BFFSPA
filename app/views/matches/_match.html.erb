@@ -7,7 +7,7 @@
 <div class="match-panel hide" id='match-panel'>
   <div class="row">
      <div class="row intro match-details ">
-  <a href='#' class='button tiny right radius' data-reveal-id="sign-in-modal">Sign in to favorite</a>
+  <a href='#' class='button tiny right radius' data-reveal-id="sign-in-modal" id='add-favorite'>add to favorites</a>
     <h2>
     Meet <span id='pet-name' >ME!</span></h2>
 
@@ -47,4 +47,14 @@
   </div>
 
   </div>
+</div>
+<div id="shelter-modal" class="reveal-modal" data-reveal aria-labelledby="shelter-modal" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">You can find me at <span id="shelter-name"></span> </h2>
+  <p class="lead " id='shelter-address' ></p>
+   <%= text_field_tag :user_name, nil, placeholder: "Your Name" %>
+   <%= text_field_tag :user_email, current_user.try(:email), placeholder: "Your Email" %>
+   <%= text_area_tag :bio, nil, placeholder: "Tell us about your self" %>
+   <%= link_to "Send!", "#", class: 'button', id:'send' %>
+
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>

@@ -35,7 +35,7 @@
               <li class="divider"></li>
               <!-- Below = Secure signout link for current_user -->
               <% if current_user %>
-              <li><%= link_to "Favorites (#{current_user.favorites.count})", favorites_path %></li>
+              <li><%= link_to "Favorites (#{current_user.favorites.count})", favorites_path, id: 'favorites-count' %></li>
               <li class="divider"></li>
               <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
               <% else %>

@@ -23,12 +23,18 @@
             <strong>Email:</strong>
             <%= @shelter.email %></li>
     </ul>
+    <%  if can? :update, @shelter %>
     <%= link_to 'Edit', edit_shelter_path(@shelter), class: 'button tiny radius' %>
+    <% end %>
+    <% if can? :delete, @shelter %>
     <%= link_to 'Delete', @shelter, method: :delete, data: {confirm: 'Are you sure you want to delete this shelter?'}, class: 'button tiny radius' %>
+    <% end %>
 </div>
 <div class=' medium-8 columns  left shelter-pets'>
 <h3>Meet our family
- - <small><%= link_to 'add more', new_shelter_pet_path(@shelter) %></small>
+<% if can? :update, @shelter %>
+ - <small><%= link_to 'add', new_shelter_pet_path(@shelter) %></small>
+ <% end %>
  </h3>
 <% @shelter.pets.each do |pet| %>
     <div class='medium-4 clearfix  columns left' >
