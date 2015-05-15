@@ -41,7 +41,11 @@
               <li class="divider"></li>
               <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
               <% else %>
-              <li> <a href="#" data-reveal-id="sign-in-modal">Sign In</a></li>
+              <li><%= link_to "Favorites", favorites_path, id: 'favorites-count' %></li>
+              <li class="divider"></li>
+              <li id='sign-out-nav' class="hide"> <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+              <li id='sign-in-nav'> <a href="#" data-reveal-id="sign-in-modal">Sign In</a>
+              </li>
             <% end %>
             </ul>
           </section>

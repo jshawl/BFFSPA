@@ -1,4 +1,4 @@
-$(document).ready(function(){
+
     var DeviseAPI = function(){
         this.loginPath = "/users/sign_in",
         this.signUpPath = "/users";
@@ -69,15 +69,21 @@ $(document).ready(function(){
     }
     SignUpForm.prototype.success = function(response){
          $('#sign-up-modal').foundation('reveal', 'close');
+         $('#sign-in-nav').hide();
+         $('#sign-out-nav').show();
     }
     SignUpForm.prototype.fail = function(response){
-        console.log(response);
+        console.log(response.responseJSON);
+        //Errors from devise can be response.responseJSON.error {}
+        //or response.responseJSON.errors[] array depending on how many fields are messed up.
+        //build an object that abstracts out the error handling but for now we just tell the use to not mess up form input
          this.form.querySelector('#sign-up-errors').innerHTML = this.alertboxText("Error occured, please validate form data before proceeding");
     }
      //stupid function because foundation alert boxes dont behave with document create element
     SignUpForm.prototype.alertboxText = function(text){
         var response =
         "<div data-alert class='alert-box alert radius'  >" + text + " </div>" ;
+        //still didnt work I assume that foundations close handler happens on load.  oh well it is still red and pretty
         return response;
     }
 
@@ -113,9 +119,14 @@ $(document).ready(function(){
     }
     SignInForm.prototype.success = function(response){
          $('#sign-in-modal').foundation('reveal', 'close');
+         $('#sign-in-nav').hide();
+         $('#sign-out-nav').show();
     }
     SignInForm.prototype.fail = function(response){
-        console.log(response.responseJSON.error);
+        console.log(response.responseJSON);
+        //Errors from devise can be response.responseJSON.error {}
+        //or response.responseJSON.errors[] array depending on how many fields are messed up.
+        //build an object that abstracts out the error handling but for now we just tell the use to not mess up form input
         this.form.querySelector('#sign-in-errors').innerHTML = this.alertboxText("Error occured, please validate form data before proceeding");
     }
     //stupid function because foundation alert boxes dont behave with document create element
@@ -125,6 +136,10 @@ $(document).ready(function(){
         return response;
     }
 
-    var signInForm = new SignInForm();
-    var signUpForm = new SignUpForm();
-});
+
+
+    //only load the ajax forms in the match index page
+    //any other page will use the HTML response
+    //this is how you would activate this ajax goodness
+    // var signInForm = new SignInForm();
+    // var signUpForm = new SignUpForm();
