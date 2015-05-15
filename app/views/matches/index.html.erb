@@ -126,7 +126,7 @@
         PetAPI.prototype.fetch = function (callback){
          $.ajax({
              type: 'POST',
-                data: {pet_type:this.type, size: this.size, sex: this.sex, personality: this.pet_personality },
+                data: {pet_type:this.pet_type, size: this.size, sex: this.sex, personality: this.pet_personality },
                 dataType: 'json',
                 url: "/matches/find.json",
                 context: this
