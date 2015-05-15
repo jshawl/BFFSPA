@@ -7,7 +7,7 @@ $(document).ready(function(){
 
          $.ajax({
             type: 'POST',
-            data:{user} ,
+            data: user,
             dataType: 'json',
             url: path,
             context: this
@@ -62,8 +62,10 @@ $(document).ready(function(){
             last_name : this.first_name.value,
             first_name : this.last_name.value
         };
+        var data = {};
+        data.user = user
 
-        DeviseAPI.signUp(user,this.success.bind(this), this.fail.bind(this));
+        DeviseAPI.signUp(data,this.success.bind(this), this.fail.bind(this));
     }
     SignUpForm.prototype.success = function(response){
          $('#sign-up-modal').foundation('reveal', 'close');
@@ -105,7 +107,9 @@ $(document).ready(function(){
             password: this.password.value,
             remember_me: 1
         };
-        DeviseAPI.signIn(user,this.success.bind(this), this.fail.bind(this));
+        var data = {};
+        data.user = user;
+        DeviseAPI.signIn(data,this.success.bind(this), this.fail.bind(this));
     }
     SignInForm.prototype.success = function(response){
          $('#sign-in-modal').foundation('reveal', 'close');
