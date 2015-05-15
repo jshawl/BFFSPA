@@ -13,6 +13,8 @@ shelter_c = Shelter.create(name: "Best Friends Forever", address: "1337 street, 
 shelter_d = Shelter.create(name: "Jimmys Pet Shelter", address: "3333 pets street, \n Blacksburg, VA", phone: "540-555-5555", email: "john@sheltera.com" )
 
 
+
+
 # shelter_a.pets.create([{
 #     name: "Zoey",
 #     breed: "Beagle",
@@ -561,3 +563,64 @@ Pet.create([{
     picture_url:"https://i.imgur.com/n4ORWzn.png",
     shelter_id: rand(1..4)
 }])
+
+
+admin = User.new
+admin.first_name = "BFF"
+admin.last_name = "Admin"
+admin.role = "admin"
+admin.email = "admin@bff.com"
+admin.password = "adminadmin"
+admin.save
+
+emp = User.new
+emp.first_name = "joe"
+emp.last_name = "jim"
+emp.role = "employee"
+emp.email = "joe@bff.com"
+emp.password = "asdfasdf"
+emp.shelter_id = 1
+emp.save
+
+emp = User.new
+emp.first_name = "tom"
+emp.last_name = "rom"
+emp.role = "employee"
+emp.email = "tom@bff.com"
+emp.password = "asdfasdf"
+emp.shelter_id = 2
+emp.save
+
+emp = User.new
+emp.first_name = "mark"
+emp.last_name = "mork"
+emp.role = "employee"
+emp.email = "mark@bff.com"
+emp.password = "asdfasdf"
+emp.shelter_id = 3
+emp.save
+
+emp = User.new
+emp.first_name = "kim"
+emp.last_name = "tim"
+emp.role = "employee"
+emp.email = "kim@bff.com"
+emp.password = "asdfasdf"
+emp.shelter_id = 4
+emp.save
+
+user = User.new
+user.first_name = "rando a"
+user.last_name = "rando a"
+user.role = "registered"
+user.email = "a@a.a"
+user.password = "asdfasdf"
+user.save
+
+user = User.new
+user.first_name = "rando b"
+user.last_name = "rando b"
+user.role = "registered"
+user.email = "b@b.b"
+user.password = "asdfasdf"
+user.save
