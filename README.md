@@ -24,14 +24,14 @@ you can find to preview the latest release of the best friends finder app, check
 https://bff-spa.herokuapp.com
 
 #### Test Users
-Admin
+**Admin**
 ```
 admin@bff.com
 adminadmin
 ```
 
 
-- Employee Accounts:
+**Employee Accounts:**
 ```
 tom@bff.com
 asdfasdf
@@ -46,7 +46,7 @@ joe@bff.com
 asdfasdf
 ```
 
-- Visitors
+**Visitors**
 ```
 a@a.a
 asdfasdf
