@@ -31,9 +31,13 @@ $(document).ready(function(){
         DeviseAPI.fetch("/users/sign_in",user,callback,failback)
     }
 
+    //this whole mess needs to be refactored
+    //Create a DeviseForm class that SIgnup and SignIn forms will inherit from
+    //Makes it a lot easier to work with
+    //too tired to fix
+    //
 
-
-
+    //SignUpFormStuff//
     var SignUpForm = function(){
         this.form = document.querySelector('#sign-up-form form');
         this.email = this.form.querySelector('#user_email');
@@ -50,6 +54,7 @@ $(document).ready(function(){
 
     SignUpForm.prototype.attemptSignIn = function(event){
         event.preventDefault();
+        this.form.querySelector('#sign-up-errors').innerHTML ="";
         var user = {
             email: this.email.value,
             password: this.password.value,
@@ -65,9 +70,20 @@ $(document).ready(function(){
     }
     SignUpForm.prototype.fail = function(response){
         console.log(response);
+         this.form.querySelector('#sign-up-errors').innerHTML = this.alertboxText("Error occured, please validate form data before proceeding");
+    }
+     //stupid function because foundation alert boxes dont behave with document create element
+    SignUpForm.prototype.alertboxText = function(text){
+        var response =
+        "<div data-alert class='alert-box alert radius'  >" + text + " </div>" ;
+        return response;
     }
 
 
+
+
+
+     //SignInFormStuff//
     var SignInForm = function(){
         this.form = document.querySelector('#sign-in-form form');
         this.email = this.form.querySelector('#user_email');
@@ -83,23 +99,27 @@ $(document).ready(function(){
 
     SignInForm.prototype.attemptSignIn = function(event){
         event.preventDefault();
+         this.form.querySelector('#sign-in-errors').innerHTML = "";
         var user = {
             email: this.email.value,
             password: this.password.value,
             remember_me: 1
         };
-
         DeviseAPI.signIn(user,this.success.bind(this), this.fail.bind(this));
-
     }
     SignInForm.prototype.success = function(response){
          $('#sign-in-modal').foundation('reveal', 'close');
     }
     SignInForm.prototype.fail = function(response){
-        console.log(response);
+        console.log(response.responseJSON.error);
+        this.form.querySelector('#sign-in-errors').innerHTML = this.alertboxText("Error occured, please validate form data before proceeding");
     }
-
-    //$('#shelter-modal').foundation('reveal', 'close');
+    //stupid function because foundation alert boxes dont behave with document create element
+    SignInForm.prototype.alertboxText = function(text){
+        var response =
+        "<div data-alert class='alert-box alert radius'  >" + text + " </div>" ;
+        return response;
+    }
 
     var signInForm = new SignInForm();
     var signUpForm = new SignUpForm();
