@@ -5,10 +5,18 @@
 </main>
     <%= render 'match' %>
 <script type="text/javascript">
+
     $(document).ready(function(){
+        //this entire section could live on an external document
+        //but no time now
+        //also this will live on one page
+        //no need to pollute my assets with this mess
         var PetModel = function(){
 
         }
+        //refactor form view to FormView and PetView classes
+        //Too much violating of SRP going on here
+        //Too much violating of javascript is also going on
          var FormView = function(){
             this.form = document.querySelector('form.match');
             this.petView = document.querySelector('#match-panel');
@@ -65,6 +73,10 @@
             this.api.pet_personality = this.form.pet_personality.value;
             this.api.fetch( this.showPets.bind(this) );
         }
+
+        //Here are lies my hopes for next match function,
+        //It works in theory, i just have the button yet
+        //Having the petview deal with updating would aid with the transition to the next pet
         FormView.prototype.showPets = function(pets){
             document.querySelector('main').style.display = 'none';
             this.pets = pets;
@@ -72,6 +84,7 @@
             this.renderPet(pet);
 
         }
+        //This is where the PetView would have been a bit more handy
         FormView.prototype.renderPet = function(pet){
             console.log(pet);
             //so sorry for all this mess
@@ -115,7 +128,8 @@
 
 
 
-
+        //THis seemed like a good idea until i added the add to favorites method
+        //Now it is a little messier than i would like
         var PetAPI = function(type, sex, size, personality){
             this.pet_type = type;
             this.sex = sex;
@@ -123,10 +137,12 @@
             this.pet_personality = personality;
         }
 
+
+        //refactor these methods to seprate API method
         PetAPI.prototype.fetch = function (callback){
          $.ajax({
              type: 'POST',
-                data: {pet_type:this.type, size: this.size, sex: this.sex, personality: this.pet_personality },
+                data: {pet_type:this.pet_type, size: this.size, sex: this.sex, personality: this.pet_personality },
                 dataType: 'json',
                 url: "/matches/find.json",
                 context: this
@@ -164,6 +180,10 @@
         }
 
         var questionForm = new FormView();
+        //ajax devise forms, for extra ajax
+        //dont act like you are not impressed
+    var signInForm = new SignInForm();
+    var signUpForm = new SignUpForm();
 
     });
 

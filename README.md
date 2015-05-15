@@ -13,14 +13,50 @@ Best Friends finder is the revolutionary app that help establish life long conne
 - Break down barriers 
 - Simplify and streamline the adoption process
 
-### Our App
-you can find to preview the latest release of the best friends finder app, checkout our public beta!
-
-https://bffs-app.herokuapp.com
-
+### User Stories
 To view our current sprint backlog visit 
 
 https://trello.com/b/jahbAHJO/bff
+
+### Our App
+you can find to preview the latest release of the best friends finder app, checkout our public beta!
+
+https://bff-spa.herokuapp.com
+
+#### Test Users
+**Admin**
+```
+admin@bff.com
+adminadmin
+```
+
+
+**Employee Accounts:**
+```
+tom@bff.com
+asdfasdf
+
+mark@bff.com
+asdfasdf
+
+kim@bff.com
+asdfasdf
+ 
+joe@bff.com
+asdfasdf
+```
+
+**Visitors**
+```
+a@a.a
+asdfasdf
+
+b@b.b
+asdfasdf
+```
+
+
+
 
 ### Contribute
 

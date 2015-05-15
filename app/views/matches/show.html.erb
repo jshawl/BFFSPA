@@ -10,7 +10,7 @@
   <% if !current_user %>
   <a href='#' class='button tiny right radius' data-reveal-id="sign-in-modal">Sign in to favorite</a>
   <% elsif @fav %>
-  <h4 class='right'><%= @pet.name %> is a favorite!</h4>
+  <h4 class='right'>&hearts; is a favorite! &hearts;</h4>
   <% else %>
    <%= form_tag "/favorites" do %>
   <%= hidden_field :pet, :id, value: @pet.id %>

@@ -1,4 +1,7 @@
-<h1>Shelters Directory </h1>
+<h1>Shelters Directory
+<% if can? :create, @shelter %>
+ - <small><%= link_to 'add', new_shelter_path%></small>
+ <% end %></h1>
 
 <% @shelters.each do |shelter| %>
 <div class='row '>
