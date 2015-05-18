@@ -19,6 +19,7 @@
 $(function(){ $(document).foundation(); });
 
 $(document).ajaxComplete(function(event, xhr, settings) {
+  //this is a really clever solution!!
   var csrf_param = xhr.getResponseHeader('X-CSRF-Param');
   var csrf_token = xhr.getResponseHeader('X-CSRF-Token');
 

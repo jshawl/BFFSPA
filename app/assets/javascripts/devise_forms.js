@@ -4,7 +4,7 @@
         this.signUpPath = "/users";
     }
     DeviseAPI.fetch = function(path, user,success,failback){
-
+    // awesome naming convention!! Fetch is on the way https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
          $.ajax({
             type: 'POST',
             data: user,
@@ -83,6 +83,7 @@
     SignUpForm.prototype.alertboxText = function(text){
         var response =
         "<div data-alert class='alert-box alert radius'  >" + text + " </div>" ;
+	// can you think of a way to move the html and  classes out of your js?
         //still didnt work I assume that foundations close handler happens on load.  oh well it is still red and pretty
         return response;
     }
@@ -115,6 +116,7 @@
         };
         var data = {};
         data.user = user;
+	// I've noticed the above two lines reused above - can this be abstracted into another object?
         DeviseAPI.signIn(data,this.success.bind(this), this.fail.bind(this));
     }
     SignInForm.prototype.success = function(response){
